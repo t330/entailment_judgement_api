@@ -29,7 +29,8 @@ def generate_sentences_with_llm(isBulkySentences: bool = False) -> JsonResponse:
             You must return the JSON array including the single object.
             """
     try:
-        response = ollama.chat(
+        client = ollama.Client(host='http://ollama:11434') # If you run the app in local machine instead of Docker, change the host to 'http://localhost:11434'
+        response = client.chat(
             model='mistral',
             messages=[
                 {

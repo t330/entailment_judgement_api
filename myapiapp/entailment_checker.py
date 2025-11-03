@@ -29,7 +29,8 @@ def check_entailment(sentences: JsonResponse) -> JsonResponse:
     Now here is the input JSON array:
     """ + json.dumps(sentenceArray, ensure_ascii=False)
     try:
-        response = ollama.chat(
+        client = ollama.Client(host='http://ollama:11434') # If you run the app in local machine instead of Docker, change the host to 'http://localhost:11434'
+        response = client.chat(
             model='mistral',
             messages=[
                 {

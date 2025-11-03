@@ -1,4 +1,3 @@
-// Get the CSRF Token from Cookies
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -12,4 +11,17 @@ function getCookie(name) {
         }
     }
     return cookieValue;
+}
+
+function getCSRFToken() {
+    let token = getCookie('csrftoken');
+    // Fallback to DOM element if cookie not found
+    if (!token) {
+        const csrfElement = document.querySelector('[name=csrfmiddlewaretoken]');
+        if (csrfElement) {
+            token = csrfElement.value;
+        }
+    }
+    
+    return token;
 }

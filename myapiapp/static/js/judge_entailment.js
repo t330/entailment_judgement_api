@@ -1,6 +1,6 @@
 function judgeEntailment(data) {
     // Get CSRF token
-    const csrftoken = getCookie('csrftoken');
+    const csrftoken = getCSRFToken();
     console.log('CSRF Token:', csrftoken);
 
     // Fetch a result of entailment judgement

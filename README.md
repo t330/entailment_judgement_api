@@ -15,15 +15,53 @@ This API provides two main functionalities:
 - **Semantic Analysis** - Entailment judgement between sentence pairs
 - **REST API** - RESTful endpoints with JSON responses powered
 
-## Conduct testing
+## Installation & Setup
 
-1. Setup environment
+### Docker Setup
 
-1. Open the local server
-http://localhost:8000
+#### Prerequisites
+- **Docker** and **Docker Compose** installed
 
+#### Quick Start with Docker
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/t330/judgement_entailment.git
+cd haga-test
+```
+
+2. **Build and run with Docker Compose:**
+```bash
+docker-compose up --build
+```
+
+3. **Run database migrations (first time only):**
+```bash
+docker-compose exec web python manage.py migrate
+```
+
+4. **Download Ollama LLM model (mistral) (first time only):**
+```bash
+docker-compose exec ollama ollama pull mistral
+```
+
+The application will be available at http://localhost:8000
+
+5. **Test an application:**
+
+1. Open http://localhost:8000
 1. Press F1 button to review F1 implementations
+  - It will take about 40 seconds to show the result of entailment judgement
 1. Press F2 button to review F2 implementations
+  - If the app judges 5 pairs of sentences, it will take about 2 minutes to show the result of entailment judgement
+  - **NOTE:** : Currently the number of sentences that can be generated is set to 5. If you obtanin test 100 pairs of sentences, please follow the steps:
+    1. Change "5" in line 16 and 20 to "100" in myapiapp/sentence_generator.py
+    1. ```bash
+        docker-compose down
+        docker-compose up
+        ```
+    1. Close the current brower tab showing the app and open it again
+    1. Check if F2 button generates 100 pairs of sentences and results of judgement entailment
 
 ## F1 Implementations
 
@@ -178,7 +216,6 @@ It's been implemented but not working
 **Functionality:**
 - **Single Pair Generation:** Creates one pair of Japanese sentences (similar or dissimilar)
 - **Bulk Generation:** Generates up to 100 pairs of Japanese sentences
-  - **NOTE:** : Currently the number of sentences that can be generated is set to 5. If you obtanin 100 pairs of sentences, please change "5" in line 16 and 20 to "100" in myapiapp/sentence_generator.py
 - **LLM Integration:** Uses Ollama to generate contextually appropriate Japanese text
 - **Semantic Variation:** Produces both semantically similar and dissimilar sentence pairs
 
@@ -219,3 +256,27 @@ It's been implemented but not working
 1. Accuracy of entailement judgement
     Sometimes Ollama produces a different form of score like ".95" instead of 0.95
 1. Accuracy of entailement judgement
+
+## Development
+
+### Project Structure
+```
+haga-test/
+├── manage.py
+├── haga/                      # Main Django project
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── myapiapp/                  # Main application
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   ├── sentence_generator.py  # LLM sentence generation
+│   ├── entailment_checker.py  # Entailment judgement
+│   ├── serializers.py
+│   └── tests.py
+└── static/                    # Static files
+    └── js/                    # JavaScript files
+└── templates/                 # Template files
+│   ├── index.html             # HTML files
+```

@@ -32,9 +32,29 @@ services:
     profiles:
       - postgres
 
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    networks:
+      - app-network
+    # Uncomment the following lines if you have NVIDIA GPU support
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
 volumes:
   postgres_data:
   sqlite_data:
+  ollama_data:
 
 networks:
   app-network:

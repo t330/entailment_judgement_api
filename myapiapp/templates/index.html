@@ -6,8 +6,10 @@
     <script src="{% static 'js/judge_entailment.js' %}"></script>
     <script src="{% static 'js/get_cookie.js' %}"></script>
     <title>Assignment Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    {% csrf_token %}
     <div style="display: flex;
         flex-direction: row;
         justify-content: center;

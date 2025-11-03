@@ -19,7 +19,8 @@ class SentenceViewSet(viewsets.ModelViewSet):
 
 def index(request):
     template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+    context = {}
+    return HttpResponse(template.render(context, request))
 
 @api_view(['GET'])
 @throttle_classes([UserRateThrottle])

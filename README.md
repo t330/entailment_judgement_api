@@ -52,7 +52,7 @@ The application will be available at http://localhost:8000
       - It will take about 40 seconds to show the result of entailment judgement
     1. Press F2 button to review F2 implementations
       - If the app judges 5 pairs of sentences, it will take about 2 minutes to show the result of entailment judgement
-      - **NOTE:** Currently the number of sentences that can be generated is set to 5. If you obtanin test 100 pairs of sentences, please follow the steps:
+      - **NOTE:** Currently the number of sentences that can be generated is set to 5. If you test 100 pairs of sentences, please follow the steps:
         1. Change "5" in line 16 and 20 to "100" in myapiapp/sentence_generator.py
         1. ```bash
             docker-compose down

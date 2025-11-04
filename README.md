@@ -1,4 +1,4 @@
-# Django Japanese Sentence API
+# Entailment Judgement API
 
 A Django REST API for Japanese sentence generation and entailment judgment using Ollama LLM integration.
 

@@ -265,8 +265,8 @@ haga-test/
 │   ├── entailment_checker.py  # Entailment judgement
 │   ├── serializers.py
 │   └── tests.py
-└── static/                    # Static files
-    └── js/                    # JavaScript files
+├── static/                    # Static files
+│   └── js/                    # JavaScript files
 └── templates/                 # Template files
-│   ├── index.html             # HTML files
+    └── index.html             # HTML files
 ```

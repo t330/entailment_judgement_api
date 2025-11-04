@@ -2,5 +2,5 @@ Django==5.2.7
 djangorestframework==3.16.1
 django-ratelimit==4.1.0
 ollama==0.6.0
-pydantic==2.10.6
-psycopg2-binary==2.9.9
+pydantic>=2.0.0
+psycopg[binary]>=3.1.0

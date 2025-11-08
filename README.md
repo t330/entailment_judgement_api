@@ -130,7 +130,7 @@ curl http://localhost:8000/generate_sentences/?batch=true
     {
       "sentence1": "I'm going to go see you tomorrow.",
       "sentence2": "I'm going to eat fish tomorrow."
-    },
+    }
   ]
 }
 ```
@@ -194,8 +194,8 @@ curl -X POST \
             "sentence2": "That person is beautiful."
           },
           {
-            "sentence1": "I'm going to go see you tomorrow.",
-            "sentence2": "I'm going to eat fish tomorrow."
+            "sentence1": "I''m going to go see you tomorrow.",
+            "sentence2": "I''m going to eat fish tomorrow."
           }
         ]
       }'

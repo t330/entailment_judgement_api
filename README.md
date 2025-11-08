@@ -66,8 +66,8 @@ cd haga-test
 
 #### 3. Change Ollama location
 
-- In line 32 at [sentence_generator.py](myapiapp\sentence_generator.py), replace host='http://ollama:11434' with http://localhost:11434
-- In line 32 at [sentence_generator.py](myapiapp\sentence_generator.py), replace host='http://ollama:11434' with http://localhost:11434
+- In line 32 at [sentence_generator.py](myapiapp\sentence_generator.py), replace host='http://ollama:11434' with host='http://localhost:11434'
+- In line 32 at [entailment_checker.py](myapiapp\entailment_checker.py), replace host='http://ollama:11434' with host='http://localhost:11434'
 
 #### 4. Run app
 ```bash

@@ -26,7 +26,7 @@ def index(request):
 @throttle_classes([UserRateThrottle])
 def generate_sentences(request) -> JsonResponse:
     if request.GET.get('batch'):
-        generated_sentences = generate_sentences_with_llm(True) # Handle up to 100 pairs of sentence generation
+        generated_sentences = generate_sentences_with_llm(True) # Handle multiple pairs of sentence generation
     else:
         generated_sentences = generate_sentences_with_llm() # Handle a single pair of sentence generation
     return generated_sentences

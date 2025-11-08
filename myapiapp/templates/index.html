@@ -5,31 +5,43 @@
     <script src="{% static 'js/generate_sentences.js' %}"></script>
     <script src="{% static 'js/judge_entailment.js' %}"></script>
     <script src="{% static 'js/get_cookie.js' %}"></script>
-    <title>Assignment Page</title>
+    <title>Entailment Judgement API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
 </head>
 <body>
     {% csrf_token %}
+    <h1 align="center">Entailment Judgement API</h1>
     <div style="display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         gap: 4px;">
-        <div style="text-align: center;">
-            <h1>Assignment Page</h1>
+        <div style="text-align: center;
+        width: 50%;">
             <p>
-                <button id="invokeF1">F1</button>
+                <button id="invokeGenerationOfSinglePairOfSentences">Conduct entailment judgement for single pair</button>
             </p>
             <p>
-                <button id="invokeF2">F2</button>
+                <button id="invokeGenerationOfNultiplePairsOfSentences">Conduct entailment judgement for 5 pairs</button>
             </p>
         </div>
-        <div id="sentences"></div>
-        <div id="results"></div>
+        <div style="text-align: center;
+        width: 50%;">
+            <p>Results</p>
+            <div style="display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 4px;">
+                <div id="sentences" style="width: 50%;"></div>
+                <div id="results" style="width: 50%;"></div>
+            </div>
+        </div>
     </div>
     <script>
-        document.getElementById('invokeF1').addEventListener('click', generateSentences);
-        document.getElementById('invokeF2').addEventListener('click', () => generateSentences(true));
+        document.getElementById('invokeGenerationOfSinglePairOfSentences').addEventListener('click', generateSentences);
+        document.getElementById('invokeGenerationOfNultiplePairsOfSentences').addEventListener('click', () => generateSentences(true));
     </script>
 </body>
 </html>

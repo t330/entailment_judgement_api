@@ -12,13 +12,13 @@ def check_entailment(sentences: JsonResponse) -> JsonResponse:
 
     # The prompt instructs the AI model to generate the sentence
 
-    # Judging entailment between Japanese sentences
+    # Judging entailment between sentences
     prompt = """
-    Produce the results of entailment judgment between a pairs of Japanese sentences.
+    Produce the results of entailment judgment between a pairs of sentences.
     Here is the example of how you evaluate a pair of sentences.
     If you are given the following JSON array as input:
-    [{"sentence1": "私は猫が大好きだ。", "sentence2": "猫が好きです。"}, {"sentence1": "天気が良いですね。", "sentence2": "あの人は美しいです。"}, {"sentence1": "明日、会いに行くつもりです。", "sentence2": "明日、魚を食べるつもりです。"}]
-    You need to evaluate how much semantically similar a pair of Japanese sentences of each object in this array is and return the result of each object as the following:
+    [{"sentence1": "I like cats.", "sentence2": "I love cats."}, {"sentence1": "The weather is nice.", "sentence2": "That person is beautiful."}, {"sentence1": "I'm going to go see you tomorrow.", "sentence2": "I'm going to eat fish tomorrow."}]
+    You need to evaluate how much semantically similar a pair of sentences of each object in this array is and return the result of each object as the following:
     [{"label": "ENTAIL", "score": 0.90}, {"label": "NO_ENTAIL", "score": 0.30}, {"label": "NO_ENTAIL", "score": 0.40}]
     label has ENTAIL whose score is greater than or equal to 0.80, or NO_ENTAIL whose score is less than 0.80.
     score is a decimal fraction between 0.00 and 1.00, where 0.00 is completely not semantically similar. and 1.00 is completely semantically similar.

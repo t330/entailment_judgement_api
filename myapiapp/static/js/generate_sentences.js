@@ -1,11 +1,10 @@
-function generateSentences(isBulkyJudgement=false) {
-    // F1 Button Click Event
+function generateSentences(isMultipleJudgement=false) {
+
     const generateSentences = '/generate_sentences/';
 
     // Fetch generated sentences
-    if (isBulkyJudgement === true) {
+    if (isMultipleJudgement === true) {
         console.log('Bulky Judgement initiated');
-        // F2 Button Click Event: Batch up to 100 pairs of entailment judgements
         fetch(generateSentences + '?batch=true').then(response => {
             if (!response.ok) {
                 throw new Error('Error in generateSentences request');
@@ -27,7 +26,6 @@ function generateSentences(isBulkyJudgement=false) {
         });
     } else {
         console.log('Single Judgement initiated');
-        // F1 Button Click Event: Single entailment judgement
         fetch(generateSentences).then(response => {
             if (!response.ok) {
                 throw new Error('Error in generateSentences request');

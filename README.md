@@ -19,39 +19,8 @@ This API provides two main functionalities:
 
 **Prerequisites** Python3 installed
 
-- Follow "Example app without Docker" if you run an app without Docker
-- Follwo "Example app with Docker" if you run an app with Docker
-
-### Set up app without Docker
-
-#### 1. Ollama setup
-
-- Install Ollama
-  - Windows: https://ollama.com/download/windows
-  - MacOS: https://ollama.com/download/mac
-- Install LLM model
-  ```bash
-  ollama pull mistral
-  ```
-
-#### 2. Clone the repository
-```bash
-git clone https://github.com/t330/judgement_entailment.git
-cd haga-test
-```
-
-#### 3. Change Ollama location
-
-- In line 32 at [sentence_generator.py](myapiapp\sentence_generator.py), replace host='http://ollama:11434' with http://localhost:11434
-
-- In line 32 at [sentence_generator.py](myapiapp\sentence_generator.py), replace host='http://ollama:11434' with http://localhost:11434
-
-#### 4. Run app
-```bash
-pip install -r requirements.txt
-python manage.py runserver 8000
-```
-- Open http://localhost:8000/
+- Follwo [Set up app with Docker](#set-up-app-with-docker) if you run an app with Docker
+- Follow [Set up app without Docker](#set-up-app-without-docker) if you run an app without Docker
 
 ### Set up app with Docker
 
@@ -75,6 +44,36 @@ docker-compose exec ollama ollama pull mistral
 
 #### 4. Access app
 
+- Open http://localhost:8000/
+
+### Set up app without Docker
+
+#### 1. Ollama setup
+
+- Install Ollama
+  - Windows: https://ollama.com/download/windows
+  - MacOS: https://ollama.com/download/mac
+- Install LLM model
+  ```bash
+  ollama pull mistral
+  ```
+
+#### 2. Clone the repository
+```bash
+git clone https://github.com/t330/judgement_entailment.git
+cd haga-test
+```
+
+#### 3. Change Ollama location
+
+- In line 32 at [sentence_generator.py](myapiapp\sentence_generator.py), replace host='http://ollama:11434' with http://localhost:11434
+- In line 32 at [sentence_generator.py](myapiapp\sentence_generator.py), replace host='http://ollama:11434' with http://localhost:11434
+
+#### 4. Run app
+```bash
+pip install -r requirements.txt
+python manage.py runserver 8000
+```
 - Open http://localhost:8000/
 
 ## Implementations
